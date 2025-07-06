@@ -1,0 +1,156 @@
+:root {
+  --primary: #2C786C;
+  --accent: #00B8A9;
+  --teal: #56BBA6;
+  --white: #fff;
+  --bg-glass-light: rgba(255,255,255,0.78);
+  --bg-glass-dark: rgba(32,38,45,0.85);
+  --shadow-glass: 0 8px 32px 0 rgba(31,38,135,0.18);
+  --border-glass: rgba(255,255,255,0.2);
+  --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(135deg, #e9f8f6 0%, #fafdff 100%);
+  color: #222;
+  transition: background .6s, color .6s;
+}
+[data-bs-theme="dark"] body {
+  background: linear-gradient(135deg, #121b1b 0%, #222936 100%);
+  color: #f4f4f4;
+}
+
+.glassmorphism {
+  background: var(--bg-glass-light);
+  box-shadow: var(--shadow-glass);
+  border: 1.5px solid var(--border-glass);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+[data-bs-theme="dark"] .glassmorphism {
+  background: var(--bg-glass-dark);
+  border-color: rgba(255,255,255,0.07);
+}
+
+.bg-accent {
+  background: var(--accent) !important;
+  color: var(--white) !important;
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  transition: background .2s;
+}
+.btn-accent:hover, .btn-accent:focus {
+  background: #25c2b6;
+  color: var(--white);
+}
+
+.text-primary { color: var(--primary) !important; }
+.link-accent { color: var(--accent); text-decoration: underline; }
+
+.display-4 { letter-spacing: -1px; }
+h2, .h2 { font-weight: 700; letter-spacing: -0.5px; }
+h3, .h3, h4, .h4 { font-weight: 600; }
+.lead { font-size: 1.25rem; }
+
+.wiki-logo {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  background: #fff;
+  border: 4px solid var(--accent);
+  transition: box-shadow .18s;
+}
+.wiki-logo:hover { box-shadow: 0 4px 28px #00b8a96a; }
+
+.floating-icon {
+  position: absolute;
+  z-index: 2;
+  opacity: 0.85;
+  width: 60px; height: 60px;
+  filter: drop-shadow(0 6px 14px rgba(44,120,108,0.12));
+  transition: transform 1s cubic-bezier(.33,1.49,.68,1);
+  animation: floatIcon 5s infinite ease-in-out;
+}
+.icon-1 { top: 12%; left: 6%; animation-delay: 0s; }
+.icon-2 { top: 60%; left: 86%; animation-delay: 1s;}
+.icon-3 { top: 40%; left: 54%; animation-delay: 2s;}
+@keyframes floatIcon {
+  0%,100% { transform: translateY(0);}
+  50% { transform: translateY(-22px);}
+}
+
+.objective-card {
+  border-radius: 1.5rem;
+  transition: box-shadow .22s, transform .16s;
+  cursor: pointer;
+}
+.objective-card:hover, .objective-card:focus-within {
+  box-shadow: 0 12px 40px 0 rgba(44,120,108,0.16), var(--shadow-glass);
+  transform: translateY(-6px) scale(1.03);
+}
+.objective-icon {
+  width: 48px; height: 48px; margin-bottom: 1rem;
+}
+
+.progress-bar.bg-accent {
+  background: var(--accent) !important;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 5px;
+  transition: color 0.3s;
+  letter-spacing: -1px;
+}
+
+.wizard-steps { gap: 4px; }
+.wizard-step {
+  flex:1;
+  text-align:center;
+  font-weight:600;
+  color:var(--accent);
+  padding: .55em 0;
+  border-radius: 16px;
+  background: var(--bg-glass-light);
+  opacity:0.65;
+  cursor: pointer;
+  transition: background .18s, opacity .18s;
+  font-size: 1.1rem;
+}
+[data-bs-theme="dark"] .wizard-step { background: var(--bg-glass-dark);}
+.wizard-step.active, .wizard-step:hover {
+  background: var(--accent);
+  color: var(--white);
+  opacity: 1;
+}
+.wizard-page { animation: fadeIn .5s;}
+@keyframes fadeIn { from { opacity: 0; transform:translateY(10px);} to { opacity: 1; transform:translateY(0);} }
+
+.file-previews img, .file-previews .file-pdf {
+  width: 60px; height: 60px; object-fit: cover; margin-right: 8px; margin-bottom: 8px; display:inline-block;
+  border-radius: 10px; background: #e9f8f6;
+  border: 1px solid #d0ece7;
+}
+.file-previews .file-pdf { display:inline-flex;align-items:center;justify-content:center;font-size:2rem;color:#be2323;background:#f8e9e9;}
+
+footer.glassmorphism {
+  margin-top: 3rem;
+}
+
+@media (max-width: 767.98px) {
+  .wiki-logo { width: 80px; height: 80px; }
+  .floating-icon { width:38px;height:38px;}
+  .display-4 { font-size:2.2rem;}
+}
+
+[data-bs-theme="dark"] {
+  --bg-glass-light: rgba(32,38,45,0.79);
+  --border-glass: rgba(255,255,255,0.08);
+  color-scheme: dark;
+}
